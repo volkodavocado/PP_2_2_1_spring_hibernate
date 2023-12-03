@@ -24,7 +24,7 @@ public class MainApp {
         userService.add(new User("User4", "Lastname4", "user4@mail.ru"
                 , new Car(4444, "chevrolet")));
 
-        List<User> users = userService.listUsers();
+        List<User> users = userService.getListUsers();
         for (User user : users) {
             System.out.println("Id = " + user.getId());
             System.out.println("First Name = " + user.getFirstName());
@@ -34,7 +34,8 @@ public class MainApp {
             System.out.println();
         }
 
-        userService.getUserByCar(3333, "mazda");
+        userService.getUsersByCar(3333, "mazda")
+                .forEach(x -> System.out.println("Такая машина есть у User c id = " + x.getId()));
 
         context.close();
     }
