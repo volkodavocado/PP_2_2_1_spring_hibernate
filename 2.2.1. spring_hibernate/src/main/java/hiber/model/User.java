@@ -20,7 +20,7 @@ public class User {
     private String email;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
+    @PrimaryKeyJoinColumn//todo - данная аннотация обязательна?
     private Car car;
 
     public User() {
