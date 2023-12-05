@@ -26,7 +26,7 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public List<User> getUsersByCar(int series, String model) {
+    public List<User> getUsersByCar(Integer series, String model) {
         return userDao.getUsersByCar(series, model);
     }
 }
