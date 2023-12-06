@@ -4,7 +4,7 @@ import hiber.model.User;
 import java.util.List;
 
 public interface UserDao {
-    void create(User user);
+    void createUser(User user);
 
     List<User> getListUsers();
 

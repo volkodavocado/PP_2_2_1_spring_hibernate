@@ -20,16 +20,13 @@ public class UserDaoImp implements UserDao {
     String getUsersByCarQuery = "from User u where u.car.model = :model and u.car.series = :series";
 
     @Override
-    public void create(User user) {
+    public void createUser(User user) {//todo: codeStyle - naming
         try (Session session = sessionFactory.openSession()) {
-            TypedQuery<User> query = session.createQuery(addUserQuery);
-
+            TypedQuery<User> query = session.createQuery(addUserQuery);//todo: codeStyle query -> createUserQuery
             query.setParameter("firstName", user.getFirstName());
             query.setParameter("lastName", user.getLastName());
             query.setParameter("email", user.getEmail());
-
             List<User> existingUsers = query.getResultList();
-
             if (existingUsers.isEmpty()) {
                 session.save(user);
             } else {
